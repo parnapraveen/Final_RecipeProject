@@ -37,9 +37,21 @@ By analyzing these columns, we aim to uncover patterns and insights that can inf
 
 ## Data Cleaning and Exploratory Data Analysis
 <!-- Describe your data cleaning process and initial findings -->
-# Rating Distribution Plot
+Step 1: We fixed the recipes column by extracting data in "nutrition" column and giving each value its corresponding column. Here, we created individual columns in our dataset called 'calories', 'total_fat', 'sugar', 'sodium', 
+'protein', 'saturated_fat', 'carbohydrates'. This makes the data formatted better and easier to read/understand.
+
+Step 2: We also merged the two dataframes together on the recipe id, as this was the most logical column to merge on that appears in both datasets and serves as a unique identifier.
+
+Step 3: We also replaced all the 0 ratings with np.nan. On top of that, we calculated the average rating across unique recipes and appended into our merged_df. The resulting Dataframe with avg ratings column is called merged_df.
+
+head of the final cleaned dataframe:
+![My Image](assets/head1.png)
+![My Image2](assets/head2.png)
+
+### Rating Distribution Plot (Univariate Analysis)
 
 Here is the distribution of individual ratings:
+This demonstrates that most ratings are skewed higher in the 4, 5 range, with a significant amount of 5 star rating. There are very few ratings that are in the 1-3 range. This means that ratings for recipes in this dataset are generally high.
 
 <iframe
   src="assets/individual_ratings_distribution.html"
@@ -47,8 +59,47 @@ Here is the distribution of individual ratings:
   height="600"
   frameborder="0"
 ></iframe>
+
+### N_Ingredients vs Average Rating Plot (Univariate Analysis)
+
+<iframe
+  src="assets/n_ingredient_avgrating.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+We wanted to see if there's a correlation between number of ingredients and the average rating. However, from this scatter plot it's evident that there's no strong correlation. The number of ingredients doesn't seem to affect the avg_rating. Regardless of the n_ingredients going up/down there's no pattern with the resulting avg_rating.
+
+
+### Intresting Aggregate Analysis
+
+This shows interesting information about n_ingredients when grouped together. It shows the number of recipes that use a specific amount of ingredients and the average rating, which is very useful for data analysis when looking at n_ingredients as a variable.
+
+![My Image2](assets/agg.png)
+
 ## Assessment of Missingness
 <!-- Detail your analysis of missing data -->
+Potential NMAR column: 
+In our dataset, the `rating` column could potentially be NMAR. Here is our reasoning:
+
+- **User Behavior**: Users may choose not to rate a recipe based on their experience with it. For instance, if a user finds a recipe particularly unsatisfactory, they might opt not to leave a rating at all. Conversely, users who have had a positive experience may be more inclined to provide a rating. This behavior suggests that the missing ratings are not random but are influenced by the quality of the recipe as perceived by the user.
+
+- **Addtional Data**: Other data we could collect to explain the missingness of rating could be other columns from the dataset. There could possibly be other columns that affect the missingness of rating. These include calories, carbohydrates, protein, and other variables of a recipe that could potentailly affect whether a user leaves a rating.
+
+
+First Step: identify columns with missing values
+
+There are a few columns that contain missing values. We will be analyzing the missingness of the "rating" column due to its non trivial missingness. We know the ratings logically cannot be Missing by Design because these are user reviews, and it's highly unlikely to be MCAR. We wanted to determine if a missing rating is NMAR or MAR on another column in the dataset.
+
+We created a permutation test function that will work for any numerical column in the dataframe. We use this function to perform permutation test for missing rating values and other columns to calculate the p_value and determine if rating is MAR on another column, using a 0.05 significance value.
+
+**One column that "Rating" is MAR on: Calories**
+
+**One column that "Rating" is not MAR on: Carbohydrates**
+
+Permutation Test to see if Rating is MAR on Carbohydrates
+
 <iframe
   src="assets/perm1_MAR.html"
   width="800"
@@ -56,6 +107,7 @@ Here is the distribution of individual ratings:
   frameborder="0"
 ></iframe>
 
+Permutation Test to see if Rating is MAR on Calories
 <iframe
   src="assets/perm2_MAR.html"
   width="800"
@@ -65,12 +117,35 @@ Here is the distribution of individual ratings:
 
 ## Hypothesis Testing
 <!-- Explain your hypothesis tests and results -->
+**Null Hypothesis:** There is no effect of Recipes with 1000+ Calories on recipe rating.
+
+**Alternate Hypothesis:** Recipes with 1000 or more calories have a lower average rating
+
+**Test Statistic:** Difference in mean rating between recipes with 1000+ calories and under 1000 calories 
+
+Here is the average rating calculated of recipes that are >= 1000. True is recipes with 1000+ calories, False is recipes less than 1000 calories.
+False    4.681211
+True     4.655571
+
+*(Mean of Rating of Recipes with 1000+ calories) - (Mean of Rating of Recipes under 1000 calories)*
+
+**Clarity of Hypotheses**: The null hypothesis provides a clear assumption that there is no relationship between calorie content and recipe ratings. The alternate hypothesis directly addresses the question by positing a specific effect (lower ratings for higher-calorie, 1000+ recipes). 
+
+ **Appropriate Measure**: The choice of the mean rating difference as the test statistic is appropriate because it provides a clear and interpretable measure of the effect size. It allows us to quantify the difference in user satisfaction between high-calorie and lower-calorie recipes.
 <iframe
   src="assets/hypo_test.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+**Result:**
+
+P Value: 0.0
+
+Reject the Null Hypotheses
+
+**Statistical Significance**: A p-value of 0.0 indicates that the observed difference in ratings is highly statistically significant. This strong evidence against the null hypothesis suggests that there could be an effect of calorie content on recipe ratings. It's unlikely that there's no relationship between high calorie recipes and ratings.
 
 ## Framing a Prediction Problem
 ### Prediction Problem Characteristics

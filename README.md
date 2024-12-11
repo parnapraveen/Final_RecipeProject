@@ -5,6 +5,12 @@
 
 ## Data Cleaning and Exploratory Data Analysis
 <!-- Describe your data cleaning process and initial findings -->
+<iframe
+  src="assets/individual_ratings_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Assessment of Missingness
 <!-- Detail your analysis of missing data -->

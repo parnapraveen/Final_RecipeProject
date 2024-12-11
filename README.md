@@ -166,3 +166,11 @@ Since the resulting p-value (0.1940) is greater than the significance level of 0
 - **Low Sugar Recipes**: 603
 - **High Sugar Recipes**: 597
 
+<iframe
+  src="assets/perm3_part8.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+

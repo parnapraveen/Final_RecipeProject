@@ -45,13 +45,13 @@ Step 2: We also merged the two dataframes together on the recipe id, as this was
 Step 3: We also replaced all the 0 ratings with np.nan. On top of that, we calculated the average rating across unique recipes and appended into our merged_df. The resulting Dataframe with avg ratings column is called merged_df.
 
 head of the final cleaned dataframe:
-![My Image](assets/head1.png)
-![My Image2](assets/head2.png)
+<img src="assets/head1.png" alt="My Image" width="300" height="200">
+<img src="assets/head2.png" alt="My Image 3" width="300" height="200">
 
 ### Rating Distribution Plot (Univariate Analysis)
 
 Here is the distribution of individual ratings:
-This demonstrates that most ratings are skewed higher in the 4, 5 range, with a significant amount of 5 star rating. There are very few ratings that are in the 1-3 range. This means that ratings for recipes in this dataset are generally high.
+This demonstrates that most ratings are skewed higher in the 4, 5 range, with a significant amount of 5 star ratings. There are very few ratings that are in the 1-3 range. This means that ratings for recipes in this dataset are generally high.
 
 <iframe
   src="assets/individual_ratings_distribution.html"
@@ -60,7 +60,7 @@ This demonstrates that most ratings are skewed higher in the 4, 5 range, with a 
   frameborder="0"
 ></iframe>
 
-### N_Ingredients vs Average Rating Plot (Univariate Analysis)
+### N_Ingredients vs Average Rating Plot (Bivariate Analysis)
 
 <iframe
   src="assets/n_ingredient_avgrating.html"
@@ -76,7 +76,8 @@ We wanted to see if there's a correlation between number of ingredients and the 
 
 This shows interesting information about n_ingredients when grouped together. It shows the number of recipes that use a specific amount of ingredients and the average rating, which is very useful for data analysis when looking at n_ingredients as a variable.
 
-![My Image2](assets/agg.png)
+<img src="assets/agg.png" alt="My Image 2" width="300" height="200">
+
 
 ## Assessment of Missingness
 <!-- Detail your analysis of missing data -->

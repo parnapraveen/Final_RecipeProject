@@ -45,8 +45,8 @@ Step 2: We also merged the two dataframes together on the recipe id, as this was
 Step 3: We also replaced all the 0 ratings with np.nan. On top of that, we calculated the average rating across unique recipes and appended into our merged_df. The resulting Dataframe with avg ratings column is called merged_df.
 
 head of the final cleaned dataframe:
-<img src="assets/head1.png" alt="My Image" width="300" height="200">
-<img src="assets/head2.png" alt="My Image 3" width="300" height="200">
+<img src="assets/head1.png" alt="My Image" width="400" height="300">
+<img src="assets/head2.png" alt="My Image 3" width="400" height="300">
 
 ### Rating Distribution Plot (Univariate Analysis)
 
@@ -76,7 +76,7 @@ We wanted to see if there's a correlation between number of ingredients and the 
 
 This shows interesting information about n_ingredients when grouped together. It shows the number of recipes that use a specific amount of ingredients and the average rating, which is very useful for data analysis when looking at n_ingredients as a variable.
 
-<img src="assets/agg.png" alt="My Image 2" width="300" height="200">
+<img src="assets/agg.png" alt="My Image 2" width="400" height="300">
 
 
 ## Assessment of Missingness
@@ -89,7 +89,7 @@ In our dataset, the `rating` column could potentially be NMAR. Here is our reaso
 - **Addtional Data**: Other data we could collect to explain the missingness of rating could be other columns from the dataset. There could possibly be other columns that affect the missingness of rating. These include calories, carbohydrates, protein, and other variables of a recipe that could potentailly affect whether a user leaves a rating.
 
 
-First Step: identify columns with missing values
+**First Step:** identify columns with missing values
 
 There are a few columns that contain missing values. We will be analyzing the missingness of the "rating" column due to its non trivial missingness. We know the ratings logically cannot be Missing by Design because these are user reviews, and it's highly unlikely to be MCAR. We wanted to determine if a missing rating is NMAR or MAR on another column in the dataset.
 
@@ -108,6 +108,7 @@ Permutation Test to see if Rating is MAR on Carbohydrates
   frameborder="0"
 ></iframe>
 
+
 Permutation Test to see if Rating is MAR on Calories
 <iframe
   src="assets/perm2_MAR.html"
@@ -125,8 +126,9 @@ Permutation Test to see if Rating is MAR on Calories
 **Test Statistic:** Difference in mean rating between recipes with 1000+ calories and under 1000 calories 
 
 Here is the average rating calculated of recipes that are >= 1000. True is recipes with 1000+ calories, False is recipes less than 1000 calories.
-False    4.681211
-True     4.655571
+
+False:    4.681211
+True:     4.655571
 
 *(Mean of Rating of Recipes with 1000+ calories) - (Mean of Rating of Recipes under 1000 calories)*
 

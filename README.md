@@ -69,7 +69,7 @@ This demonstrates that most ratings are skewed higher in the 4, 5 range, with a 
   frameborder="0"
 ></iframe>
 
-We wanted to see if there's a correlation between number of ingredients and the average rating. However, from this scatter plot it's evident that there's no strong correlation. The number of ingredients doesn't seem to affect the avg_rating. Regardless of the n_ingredients going up/down there's no pattern with the resulting avg_rating.
+We wanted to see if there's a correlation between number of ingredients and the number of steps. However, from this scatter plot it's evident that there's no strong correlation. The number of ingredients doesn't seem to affect the number of steps. Regardless of the n_ingredients going up/down there's no pattern with the resulting n_steps.
 
 
 ### Intresting Aggregate Analysis

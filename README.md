@@ -45,8 +45,8 @@ Step 2: We also merged the two dataframes together on the recipe id, as this was
 Step 3: We also replaced all the 0 ratings with np.nan. On top of that, we calculated the average rating across unique recipes and appended into our merged_df. The resulting Dataframe with avg ratings column is called merged_df.
 
 head of the final cleaned dataframe:
-<img src="assets/head1.png" alt="My Image" width="400" height="300">
-<img src="assets/head2.png" alt="My Image 3" width="400" height="300">
+<img src="assets/head1.png" alt="My Image" width="500" height="400">
+<img src="assets/head2.png" alt="My Image 3" width="500" height="400">
 
 ### Rating Distribution Plot (Univariate Analysis)
 
@@ -76,7 +76,7 @@ We wanted to see if there's a correlation between number of ingredients and the 
 
 This shows interesting information about n_ingredients when grouped together. It shows the number of recipes that use a specific amount of ingredients and the average rating, which is very useful for data analysis when looking at n_ingredients as a variable.
 
-<img src="assets/agg.png" alt="My Image 2" width="400" height="300">
+<img src="assets/agg.png" alt="My Image 2" width="500" height="400">
 
 
 ## Assessment of Missingness

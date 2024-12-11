@@ -121,7 +121,7 @@ Permutation Test to see if Rating is MAR on Calories
 
 ## Hypothesis Testing
 <!-- Explain your hypothesis tests and results -->
-**Null Hypothesis:** There is no effect of Recipes with 1000+ Calories on recipe rating.
+**Null Hypothesis:** There is no effect of Recipes with 1000+ Calories on recipe rating
 
 **Alternate Hypothesis:** Recipes with 1000 or more calories have a lower average rating
 

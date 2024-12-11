@@ -2,16 +2,75 @@
 
 ## Introduction
 <!-- Add your project introduction here -->
-intro
+
+The dataset used in this project consists of recipes and their associated user ratings, providing information for analyzing culinary preferences and trends. The primary focus of this project is to explore how various factors, such as ingredients and preparation time, influence the ratings of recipes. This analysis can help both home cooks and professionals understand what makes a recipe successful in terms of user satisfaction.
+
+### Central Question
+
+The central question of this project is: **How do the nutritional content and preparation time of recipes affect their average user ratings?**
+
+### Importance of the Question
+
+Understanding the relationship between recipe characteristics and user ratings is crucial for several reasons:
+
+1. **Consumer Insight**: It helps consumers make informed choices about which recipes to try based on their preferences for healthiness and preparation time.
+2. **Culinary Trends**: Identifying trends in user ratings can guide chefs and food bloggers in creating recipes that are more likely to be well-received.
+3. **Nutritional Awareness**: As more people become health-conscious, knowing how nutritional factors influence ratings can encourage healthier cooking choices.
+
+### Dataset Overview
+
+- **Number of Rows**: The recipes dataset contains **83,782 rows** and the interactions dataset contains**731,927 rows**
+  
+### Relevant Columns
+
+The following columns are particularly relevant to our central question:
+
+1. **`calories`**: This column indicates the total caloric content of the recipe. It is essential for understanding how the energy content of a dish influences its popularity.
+  
+2. **`n_steps`**: This column represents the number of steps required to prepare the recipe. It provides insight into how preparation complexity may affect user ratings.
+  
+3. **`avg_rating`**: This column contains the average user rating for each recipe. It serves as the primary measure of user satisfaction and is the outcome variable in our analysis.
+
+4. **`n_ingredients`**: This column indicates the number of ingredients used in the recipe. It can help assess whether simpler recipes with fewer ingredients tend to receive higher ratings.
+
+By analyzing these columns, we aim to uncover patterns and insights that can inform both consumers and culinary creators about the factors that contribute to recipe success.
 
 ## Data Cleaning and Exploratory Data Analysis
 <!-- Describe your data cleaning process and initial findings -->
+# Rating Distribution Plot
 
+Here is the distribution of individual ratings:
+
+<iframe
+  src="assets/individual_ratings_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 ## Assessment of Missingness
 <!-- Detail your analysis of missing data -->
+<iframe
+  src="assets/perm1_MAR.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/perm2_MAR.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Hypothesis Testing
 <!-- Explain your hypothesis tests and results -->
+<iframe
+  src="assets/hypo_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Framing a Prediction Problem
 ### Prediction Problem Characteristics

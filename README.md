@@ -2,6 +2,7 @@
 
 ## Introduction
 <!-- Add your project introduction here -->
+intro
 
 ## Data Cleaning and Exploratory Data Analysis
 <!-- Describe your data cleaning process and initial findings -->
